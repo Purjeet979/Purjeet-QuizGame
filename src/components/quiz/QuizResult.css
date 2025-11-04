@@ -1,0 +1,126 @@
+:root {
+    /* Colors from your PrepGuru theme */
+    --navy-dark: #1a1a2e;
+    --navy-medium: #16213e;
+    --primary-blue: #0d6efd;
+    --text-light: #e0e0e0;
+    --text-white: #ffffff;
+}
+
+.result-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--navy-dark); /* Using your main background color */
+    background-image: linear-gradient(315deg, #1a1a2e 0%, #16213e 74%);
+    min-height: 100vh;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif; /* Using your main font */
+}
+
+.result-title {
+    font-family: 'Poppins', sans-serif; /* Changed from pixel font */
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 0.5rem;
+}
+
+.result-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+}
+
+.result-card {
+    background-color: var(--navy-medium);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.result-card-title {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.progress-bar-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem auto;
+    position: relative;
+}
+
+.rating-text {
+    color: var(--text-light);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.stat-grid.two-cols { /* Updated selector for two columns */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.stat-box {
+    background-color: var(--navy-dark);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(224, 224, 224, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.action-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-result {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-result.retake {
+    background-color: var(--primary-blue);
+    color: #fff;
+}
+
+.btn-result.retake:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -10px rgba(13, 110, 253, 0.6);
+}
+
+.btn-result.dashboard, .btn-result.home {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-result.dashboard:hover, .btn-result.home:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-3px);
+}

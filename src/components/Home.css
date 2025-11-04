@@ -1,0 +1,184 @@
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh; /* Make it take up most of the screen height */
+  position: relative;
+  overflow: hidden; /* Hide parts of the blobs that go off-screen */
+  padding: 2rem;
+}
+
+.hero-content {
+  z-index: 2; /* Ensure content is above the background shapes */
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.hero-button {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 15px 35px;
+  border-radius: 50px; /* Makes the button a pill shape */
+  background-color: #6c47ff; /* A vibrant purple */
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px -10px rgba(108, 71, 255, 0.5);
+}
+
+/* --- Animated Background Shapes --- */
+.hero-shape-blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(180deg, rgba(108, 71, 255, 0.4) 0%, rgba(13, 110, 253, 0.4) 100%);
+  border-radius: 50%;
+  filter: blur(80px); /* This creates the soft, blurry effect */
+  z-index: 1;
+  animation: moveBlob 15s infinite alternate;
+}
+
+.hero-shape-blob.two {
+  width: 300px;
+  height: 300px;
+  animation-delay: -5s; /* Makes the blobs move out of sync */
+  animation-duration: 20s;
+}
+
+@keyframes moveBlob {
+  from {
+    transform: translate(-150px, -100px) rotate(0deg);
+  }
+  to {
+    transform: translate(100px, 150px) rotate(360deg);
+  }
+}
+/* --- Robot Sticker Styling --- */
+@keyframes float-robot {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px); /* This controls how high the robot floats */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* --- Update your existing .robot-container style with the animation --- */
+.robot-container {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 220px;
+    height: 220px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Add the animation properties below */
+    animation-name: float-robot;
+    animation-duration: 4s; /* Controls the speed of one full float cycle */
+    animation-iteration-count: infinite; /* Makes the animation loop forever */
+    animation-timing-function: ease-in-out; /* Makes the movement smooth */
+}
+
+.robot-sticker {
+    max-width: 100%;
+    max-height: 100%;
+    transition: transform 0.2s ease-out; /* Smooth scale on click */
+}
+
+/* Waving Animation */
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(14deg); }
+    30% { transform: rotate(-8deg); }
+    45% { transform: rotate(14deg); }
+    60% { transform: rotate(-4deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.wave-animation {
+    animation: wave 1.5s ease-in-out; /* Apply the wave animation */
+}
+
+/* Speech Bubble Styling */
+.robot-speech-bubble {
+    position: absolute;
+    top: -40px; /* Position above the robot */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: #1a1a2e;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Start hidden */
+    animation: fadeInOut 2s forwards; /* Fade in and out */
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, 10px); }
+    20% { opacity: 1; transform: translate(-50%, 0); }
+    80% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+@media (max-width: 768px) {
+  
+  .hero-container {
+    /* Change layout to vertical. 
+      This is optional but recommended.
+    */
+    flex-direction: column;
+  }
+
+  .hero-title {
+    /* Make the title smaller on mobile */
+    font-size: 2.5rem; 
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .robot-container {
+    /* This is the main fix!
+      We remove absolute positioning and let the
+      robot sit naturally *below* the text.
+    */
+    position: relative; /* Change from 'absolute' to 'relative' */
+    right: auto; /* Reset horizontal position */
+    bottom: auto; /* Reset vertical position */
+    margin-top: 2rem; /* Add some space above the robot */
+  }
+
+  /* This hides the background blobs on mobile,
+    as they can be distracting and cause layout shifts.
+  */
+  .hero-shape-blob {
+    display: none;
+  }
+}
