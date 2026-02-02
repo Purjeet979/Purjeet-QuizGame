@@ -65,7 +65,7 @@ This is a full-stack application with a separate backend and frontend. You will 
 
 ## 🧑‍💻 Creator
 
-* **Purjeet Shahu** - [Link to your GitHub Profile or LinkedIn (Optional)]
+* **Purjeet Shahu** - [LinkedIn- www.linkedin.com/in/purjeet-shahu-9a8b43370]
 
 
 ## 🙏 Acknowledgments
